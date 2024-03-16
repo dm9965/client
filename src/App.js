@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import CreatePost from './components/CreatePost';
+import Header from './components/Header';
+import PostContainer from './components/PostContainer'
+import 'bootstrap/dist/css/bootstrap.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [ postArray, setPostArray ] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-100 h-100">
+      <Header/>
+      <CreatePost
+        postArray={postArray}
+        setPostArray={setPostArray}
+      />
+      <PostContainer className="h-100 mb-5 "
+        postArray={postArray}
+      />
     </div>
   );
 }
